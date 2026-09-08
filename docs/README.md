@@ -3,12 +3,16 @@
 An unofficial, single-screen implementation of the board game *Underwater Cities*
 for 2–4 players sharing one device. No build step, no server, no networking.
 
-## Run it
+## Play it
 
-Open `index.html` in a browser, or serve the folder:
+Online: <https://ryanmilb.github.io/NodeSandbox/> (GitHub Pages serves this
+`docs/` folder from `master`; that's why the game lives in a folder named
+`docs` rather than something more obvious).
+
+Locally, open `index.html` in a browser, or serve the folder:
 
 ```sh
-cd underwater-cities
+cd docs
 python -m http.server 8000
 # then open http://localhost:8000
 ```
@@ -69,7 +73,8 @@ through public sources, and the card art/text is the publisher's). Instead:
   same layout; metropolis tiles are dealt randomly.
 - The same board is used at every player count (the real 2-player board removes slots).
 
-All of that lives in `js/data.js` and is easy to edit.
+All of that lives in `js/data.js` and is easy to edit. A push to `master` that
+touches this folder republishes the site.
 
 ## Files
 
