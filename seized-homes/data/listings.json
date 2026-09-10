@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-09-10T11:31:26.088Z",
+    "generatedAt": "2026-09-10T11:36:25.845Z",
     "origin": {
       "name": "McMinnville, OR",
       "lat": 45.2101,
@@ -19,7 +19,7 @@
         "ok": true,
         "count": 21,
         "note": null,
-        "ms": 718
+        "ms": 1966
       },
       {
         "id": "usda",
@@ -29,7 +29,7 @@
         "ok": true,
         "count": 0,
         "note": "USDA currently holds no Oregon inventory",
-        "ms": 683
+        "ms": 609
       },
       {
         "id": "gsa",
@@ -39,7 +39,7 @@
         "ok": true,
         "count": 0,
         "note": null,
-        "ms": 3513
+        "ms": 3665
       },
       {
         "id": "irs",
@@ -49,7 +49,7 @@
         "ok": true,
         "count": 0,
         "note": null,
-        "ms": 1644
+        "ms": 1367
       }
     ]
   },
@@ -71,6 +71,7 @@
       "beds": 3,
       "baths": 1,
       "sqft": 1248,
+      "acres": 0.177,
       "yearBuilt": 1961,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -80,7 +81,7 @@
       "distanceMiles": 19.6,
       "bearing": "SSE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -101,6 +102,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 2554,
+      "acres": 0.93,
       "yearBuilt": 1990,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -110,7 +112,7 @@
       "distanceMiles": 20,
       "bearing": "ENE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -131,6 +133,7 @@
       "beds": 4,
       "baths": 2.1,
       "sqft": 3125,
+      "acres": 0.32,
       "yearBuilt": 1999,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -140,7 +143,7 @@
       "distanceMiles": 23.7,
       "bearing": "NE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -161,6 +164,7 @@
       "beds": 1,
       "baths": 1.1,
       "sqft": 1512,
+      "acres": null,
       "yearBuilt": 1972,
       "propertyType": "Condo",
       "status": "Extended listing",
@@ -170,7 +174,7 @@
       "distanceMiles": 28.3,
       "bearing": "ENE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -191,6 +195,7 @@
       "beds": 2,
       "baths": 2.1,
       "sqft": 1807,
+      "acres": 0.09,
       "yearBuilt": 1998,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -200,7 +205,7 @@
       "distanceMiles": 29.3,
       "bearing": "NE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -221,6 +226,7 @@
       "beds": 4,
       "baths": 2.1,
       "sqft": 1882,
+      "acres": 0.185,
       "yearBuilt": 1994,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -230,7 +236,7 @@
       "distanceMiles": 30.4,
       "bearing": "ENE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -251,6 +257,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1188,
+      "acres": 0.114,
       "yearBuilt": 1998,
       "propertyType": "Manufactured Home",
       "status": "Exclusive listing",
@@ -260,7 +267,7 @@
       "distanceMiles": 34.5,
       "bearing": "ENE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -281,6 +288,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1235,
+      "acres": 0.128,
       "yearBuilt": 1920,
       "propertyType": "Single Family Home",
       "status": "Exclusive listing",
@@ -290,7 +298,7 @@
       "distanceMiles": 35.7,
       "bearing": "WNW",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -311,6 +319,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 2001,
+      "acres": null,
       "yearBuilt": 1973,
       "propertyType": "Condo",
       "status": "Extended listing",
@@ -320,7 +329,7 @@
       "distanceMiles": 37.6,
       "bearing": "NE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -341,6 +350,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1592,
+      "acres": 5.19,
       "yearBuilt": 1977,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -350,7 +360,7 @@
       "distanceMiles": 47.7,
       "bearing": "SSE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -371,6 +381,7 @@
       "beds": 2,
       "baths": 2.1,
       "sqft": 2206,
+      "acres": 0.24,
       "yearBuilt": 2006,
       "propertyType": "Single Family Home",
       "status": "Exclusive listing",
@@ -380,7 +391,7 @@
       "distanceMiles": 90.1,
       "bearing": "S",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -401,6 +412,7 @@
       "beds": 3,
       "baths": 1,
       "sqft": 680,
+      "acres": 0.1,
       "yearBuilt": 2002,
       "propertyType": "Manufactured Home",
       "status": "Extended listing",
@@ -410,7 +422,7 @@
       "distanceMiles": 95.2,
       "bearing": "SSW",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -431,6 +443,7 @@
       "beds": 2,
       "baths": 2.1,
       "sqft": 2600,
+      "acres": 1.05,
       "yearBuilt": 2003,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -440,7 +453,7 @@
       "distanceMiles": 105,
       "bearing": "SE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -461,6 +474,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1617,
+      "acres": 0.19,
       "yearBuilt": 1984,
       "propertyType": "Manufactured Home",
       "status": "Extended listing",
@@ -470,7 +484,7 @@
       "distanceMiles": 107.4,
       "bearing": "S",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -491,6 +505,7 @@
       "beds": 3,
       "baths": 1,
       "sqft": 959,
+      "acres": 0.45,
       "yearBuilt": 1936,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -500,7 +515,7 @@
       "distanceMiles": 107.5,
       "bearing": "SSE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -521,6 +536,7 @@
       "beds": 2,
       "baths": 2,
       "sqft": 2258,
+      "acres": 1.03,
       "yearBuilt": 2006,
       "propertyType": "Single Family Home",
       "status": "Exclusive listing",
@@ -530,7 +546,7 @@
       "distanceMiles": 113,
       "bearing": "SSW",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -551,6 +567,7 @@
       "beds": 2,
       "baths": 2,
       "sqft": 1353,
+      "acres": 0.29,
       "yearBuilt": 1950,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -560,7 +577,7 @@
       "distanceMiles": 130.7,
       "bearing": "ESE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -581,6 +598,7 @@
       "beds": 3,
       "baths": 1.1,
       "sqft": 1615,
+      "acres": 1,
       "yearBuilt": 1978,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -590,7 +608,7 @@
       "distanceMiles": 131.2,
       "bearing": "SE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -611,6 +629,7 @@
       "beds": 1,
       "baths": 1,
       "sqft": 702,
+      "acres": 0.2,
       "yearBuilt": 2004,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -620,7 +639,7 @@
       "distanceMiles": 134.5,
       "bearing": "S",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -641,6 +660,7 @@
       "beds": 2,
       "baths": 2,
       "sqft": 1344,
+      "acres": 5,
       "yearBuilt": 1995,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -650,7 +670,7 @@
       "distanceMiles": 139.7,
       "bearing": "S",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -671,6 +691,7 @@
       "beds": 4,
       "baths": 2,
       "sqft": 1512,
+      "acres": 6.78,
       "yearBuilt": 2010,
       "propertyType": "Manufactured Home",
       "status": "Extended listing",
@@ -680,7 +701,7 @@
       "distanceMiles": 248.9,
       "bearing": "SSE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     }

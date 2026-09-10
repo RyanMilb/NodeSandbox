@@ -423,7 +423,8 @@
     <p class="standfirst">
       Every residential property currently held or auctioned by a federal agency in
       Oregon, pulled straight from the agencies' own listing systems and ranked by
-      straight-line distance from McMinnville.
+      straight-line distance from McMinnville. Showing lots over four acres &mdash;
+      drop the lot slider to open it back up to the full inventory.
     </p>
     <div class="origin-line">
       <span>ORIGIN 45.2101&deg;N 123.1951&deg;W</span>
@@ -456,6 +457,10 @@
       <div class="control">
         <label for="f-distance">Within <output id="o-distance"></output></label>
         <input type="range" id="f-distance" min="20" max="250" step="5" value="250">
+      </div>
+      <div class="control">
+        <label for="f-acres">Lot over <output id="o-acres"></output></label>
+        <input type="range" id="f-acres" min="0" max="8" step="0.25" value="4">
       </div>
       <div class="control">
         <label for="f-price">Up to <output id="o-price"></output></label>
@@ -498,6 +503,7 @@
             <th data-key="price" data-type="num">Price</th>
             <th data-key="beds" data-type="num">Bd / Ba</th>
             <th data-key="sqft" data-type="num">Sq ft</th>
+            <th data-key="acres" data-type="num">Acres</th>
             <th data-key="yearBuilt" data-type="num">Built</th>
             <th data-key="status" data-type="str">Listing</th>
             <th data-key="saleDate" data-type="str">Bid opens</th>
@@ -587,27 +593,59 @@
       return s.length ? s[Math.floor(s.length / 2)] : null;
     }
 
-    var nearest = ALL.reduce(function (a, b) {
-      return a == null || (b.distanceMiles != null && b.distanceMiles < a.distanceMiles) ? b : a;
-    }, null);
-    var within50 = ALL.filter(function (l) { return l.distanceMiles != null && l.distanceMiles <= 50; });
+    function drawFigures(rows) {
+      var nearest = rows.reduce(function (a, b) {
+        return a == null || (b.distanceMiles != null && b.distanceMiles < a.distanceMiles) ? b : a;
+      }, null);
+      var within50 = rows.filter(function (l) {
+        return l.distanceMiles != null && l.distanceMiles <= 50;
+      });
+      var prices = rows.map(function (l) { return l.price; }).filter(function (p) { return p != null; });
+      var biggest = rows.reduce(function (a, b) {
+        return a == null || (b.acres != null && b.acres > a.acres) ? b : a;
+      }, null);
 
-    document.getElementById('figures').innerHTML = [
-      { v: META.total, l: 'Properties listed', s: 'across ' + new Set(ALL.map(function (l) { return l.county; })).size + ' counties' },
-      { v: within50.length, l: 'Within 50 miles', s: 'commutable from McMinnville' },
-      { v: nearest ? nearest.distanceMiles + ' mi' : '—', l: 'Nearest listing', s: nearest ? nearest.city + ' · ' + nearest.bearing : '' },
-      { v: usdShort(median(ALL.map(function (l) { return l.price; }))), l: 'Median list price', s: usdShort(Math.min.apply(null, ALL.map(function (l) { return l.price; }))) + ' – ' + usdShort(Math.max.apply(null, ALL.map(function (l) { return l.price; }))) }
-    ].map(function (f) {
-      return '<div class="figure">' +
-        '<div class="figure-value">' + esc(f.v) + '</div>' +
-        '<div class="figure-label">' + esc(f.l) + '</div>' +
-        '<div class="figure-sub">' + esc(f.s) + '</div>' +
-      '</div>';
-    }).join('');
+      document.getElementById('figures').innerHTML = [
+        {
+          v: rows.length,
+          l: 'Properties shown',
+          s: 'of ' + META.total + ' listed in Oregon'
+        },
+        {
+          v: within50.length,
+          l: 'Within 50 miles',
+          s: 'commutable from McMinnville'
+        },
+        {
+          v: nearest ? nearest.distanceMiles + ' mi' : '—',
+          l: 'Nearest listing',
+          s: nearest ? nearest.city + ' · ' + nearest.bearing : 'no match'
+        },
+        {
+          v: prices.length ? usdShort(median(prices)) : '—',
+          l: 'Median list price',
+          s: prices.length
+            ? usdShort(Math.min.apply(null, prices)) + ' – ' + usdShort(Math.max.apply(null, prices))
+            : ''
+        },
+        {
+          v: biggest && biggest.acres != null ? biggest.acres.toFixed(2) + ' ac' : '—',
+          l: 'Largest lot',
+          s: biggest && biggest.acres != null ? biggest.city + ' · ' + biggest.county : ''
+        }
+      ].map(function (f) {
+        return '<div class="figure">' +
+          '<div class="figure-value">' + esc(f.v) + '</div>' +
+          '<div class="figure-label">' + esc(f.l) + '</div>' +
+          '<div class="figure-sub">' + esc(f.s) + '</div>' +
+        '</div>';
+      }).join('');
+    }
 
     /* ---------- filter wiring ---------- */
 
     var fDistance = document.getElementById('f-distance');
+    var fAcres = document.getElementById('f-acres');
     var fPrice = document.getElementById('f-price');
     var fBeds = document.getElementById('f-beds');
     var fType = document.getElementById('f-type');
@@ -627,7 +665,10 @@
 
     function visible() {
       var maxD = +fDistance.value, maxP = +fPrice.value, minB = +fBeds.value;
+      var minA = +fAcres.value;
       return ALL.filter(function (l) {
+        // Above a zero threshold an unknown lot size cannot be shown to clear it.
+        if (minA > 0 && !(l.acres > minA)) return false;
         if (l.distanceMiles != null && l.distanceMiles > maxD) return false;
         if (l.price != null && l.price > maxP) return false;
         if (minB && (l.beds == null || l.beds < minB)) return false;
@@ -727,7 +768,7 @@
     function drawTable(rows) {
       var body = document.getElementById('rows');
       if (!rows.length) {
-        body.innerHTML = '<tr class="empty-row"><td colspan="9">' +
+        body.innerHTML = '<tr class="empty-row"><td colspan="10">' +
           'No properties match these filters. Widen the distance or price range.</td></tr>';
         return;
       }
@@ -746,6 +787,7 @@
           '<td class="num">' + (l.beds == null ? '—' : l.beds) + ' / ' +
             (l.baths == null ? '—' : l.baths) + '</td>' +
           '<td class="num">' + (l.sqft == null ? '—' : l.sqft.toLocaleString('en-US')) + '</td>' +
+          '<td class="num">' + (l.acres == null ? '—' : l.acres.toFixed(2)) + '</td>' +
           '<td class="num">' + (l.yearBuilt == null ? '—' : l.yearBuilt) + '</td>' +
           '<td><span class="pill' + (/Exclusive/i.test(l.status || '') ? ' exclusive' : '') + '">' +
             esc((l.status || '—').replace(' listing', '')) + '</span></td>' +
@@ -777,17 +819,20 @@
     function render() {
       document.getElementById('o-distance').textContent = fDistance.value + ' mi';
       document.getElementById('o-price').textContent = usdShort(+fPrice.value);
+      document.getElementById('o-acres').textContent =
+        +fAcres.value === 0 ? 'any size' : (+fAcres.value).toFixed(2) + ' ac';
       current = visible();
+      drawFigures(current);
       drawPlot(current);
       drawTable(current);
     }
 
-    [fDistance, fPrice, fBeds, fType, fSource].forEach(function (el) {
+    [fDistance, fAcres, fPrice, fBeds, fType, fSource].forEach(function (el) {
       el.addEventListener('input', render);
     });
 
     document.getElementById('reset').addEventListener('click', function () {
-      fDistance.value = 250; fPrice.value = 1150000;
+      fDistance.value = 250; fPrice.value = 1150000; fAcres.value = 4;
       fBeds.value = '0'; fType.value = ''; fSource.value = '';
       render();
     });

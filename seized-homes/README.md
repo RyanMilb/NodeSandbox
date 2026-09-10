@@ -71,6 +71,11 @@ publish in irregular batches, often as PDFs, so each county is its own parser.
 
 - Distances are great-circle miles, not drive time. Something 30 miles out across
   the Coast Range is a very different trip from 30 miles down 99W.
+- Lot size comes from the HUD detail page, one request per property, and is
+  reported there in either acres or square feet depending on a per-record unit
+  flag. Condos generally carry a zero lot size, which is stored as unknown rather
+  than as zero acres. The dashboard opens filtered to lots over four acres; the
+  slider goes to zero to show everything.
 - Prices are agency list prices and move without notice. Confirm on the listing.
 - HUD properties have bidding windows and eligibility rules (owner-occupant
   priority periods). The `Listing` column shows which period a property is in.

@@ -59,6 +59,7 @@ function buildRecord(source, fields) {
     beds: toNumber(fields.beds),
     baths: toNumber(fields.baths),
     sqft: toNumber(fields.sqft),
+    acres: fields.acres == null ? null : Number(Number(fields.acres).toFixed(3)),
     yearBuilt: toNumber(fields.yearBuilt),
     propertyType: fields.propertyType || null,
     status: fields.status || null,

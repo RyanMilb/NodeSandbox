@@ -423,7 +423,8 @@
     <p class="standfirst">
       Every residential property currently held or auctioned by a federal agency in
       Oregon, pulled straight from the agencies' own listing systems and ranked by
-      straight-line distance from McMinnville.
+      straight-line distance from McMinnville. Showing lots over four acres &mdash;
+      drop the lot slider to open it back up to the full inventory.
     </p>
     <div class="origin-line">
       <span>ORIGIN 45.2101&deg;N 123.1951&deg;W</span>
@@ -456,6 +457,10 @@
       <div class="control">
         <label for="f-distance">Within <output id="o-distance"></output></label>
         <input type="range" id="f-distance" min="20" max="250" step="5" value="250">
+      </div>
+      <div class="control">
+        <label for="f-acres">Lot over <output id="o-acres"></output></label>
+        <input type="range" id="f-acres" min="0" max="8" step="0.25" value="4">
       </div>
       <div class="control">
         <label for="f-price">Up to <output id="o-price"></output></label>
@@ -498,6 +503,7 @@
             <th data-key="price" data-type="num">Price</th>
             <th data-key="beds" data-type="num">Bd / Ba</th>
             <th data-key="sqft" data-type="num">Sq ft</th>
+            <th data-key="acres" data-type="num">Acres</th>
             <th data-key="yearBuilt" data-type="num">Built</th>
             <th data-key="status" data-type="str">Listing</th>
             <th data-key="saleDate" data-type="str">Bid opens</th>
@@ -520,7 +526,7 @@
 
 <script id="listings-data" type="application/json">{
   "meta": {
-    "generatedAt": "2026-09-10T11:31:26.088Z",
+    "generatedAt": "2026-09-10T11:36:25.845Z",
     "origin": {
       "name": "McMinnville, OR",
       "lat": 45.2101,
@@ -539,7 +545,7 @@
         "ok": true,
         "count": 21,
         "note": null,
-        "ms": 718
+        "ms": 1966
       },
       {
         "id": "usda",
@@ -549,7 +555,7 @@
         "ok": true,
         "count": 0,
         "note": "USDA currently holds no Oregon inventory",
-        "ms": 683
+        "ms": 609
       },
       {
         "id": "gsa",
@@ -559,7 +565,7 @@
         "ok": true,
         "count": 0,
         "note": null,
-        "ms": 3513
+        "ms": 3665
       },
       {
         "id": "irs",
@@ -569,7 +575,7 @@
         "ok": true,
         "count": 0,
         "note": null,
-        "ms": 1644
+        "ms": 1367
       }
     ]
   },
@@ -591,6 +597,7 @@
       "beds": 3,
       "baths": 1,
       "sqft": 1248,
+      "acres": 0.177,
       "yearBuilt": 1961,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -600,7 +607,7 @@
       "distanceMiles": 19.6,
       "bearing": "SSE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -621,6 +628,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 2554,
+      "acres": 0.93,
       "yearBuilt": 1990,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -630,7 +638,7 @@
       "distanceMiles": 20,
       "bearing": "ENE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -651,6 +659,7 @@
       "beds": 4,
       "baths": 2.1,
       "sqft": 3125,
+      "acres": 0.32,
       "yearBuilt": 1999,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -660,7 +669,7 @@
       "distanceMiles": 23.7,
       "bearing": "NE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -681,6 +690,7 @@
       "beds": 1,
       "baths": 1.1,
       "sqft": 1512,
+      "acres": null,
       "yearBuilt": 1972,
       "propertyType": "Condo",
       "status": "Extended listing",
@@ -690,7 +700,7 @@
       "distanceMiles": 28.3,
       "bearing": "ENE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -711,6 +721,7 @@
       "beds": 2,
       "baths": 2.1,
       "sqft": 1807,
+      "acres": 0.09,
       "yearBuilt": 1998,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -720,7 +731,7 @@
       "distanceMiles": 29.3,
       "bearing": "NE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -741,6 +752,7 @@
       "beds": 4,
       "baths": 2.1,
       "sqft": 1882,
+      "acres": 0.185,
       "yearBuilt": 1994,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -750,7 +762,7 @@
       "distanceMiles": 30.4,
       "bearing": "ENE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -771,6 +783,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1188,
+      "acres": 0.114,
       "yearBuilt": 1998,
       "propertyType": "Manufactured Home",
       "status": "Exclusive listing",
@@ -780,7 +793,7 @@
       "distanceMiles": 34.5,
       "bearing": "ENE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -801,6 +814,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1235,
+      "acres": 0.128,
       "yearBuilt": 1920,
       "propertyType": "Single Family Home",
       "status": "Exclusive listing",
@@ -810,7 +824,7 @@
       "distanceMiles": 35.7,
       "bearing": "WNW",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -831,6 +845,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 2001,
+      "acres": null,
       "yearBuilt": 1973,
       "propertyType": "Condo",
       "status": "Extended listing",
@@ -840,7 +855,7 @@
       "distanceMiles": 37.6,
       "bearing": "NE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -861,6 +876,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1592,
+      "acres": 5.19,
       "yearBuilt": 1977,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -870,7 +886,7 @@
       "distanceMiles": 47.7,
       "bearing": "SSE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -891,6 +907,7 @@
       "beds": 2,
       "baths": 2.1,
       "sqft": 2206,
+      "acres": 0.24,
       "yearBuilt": 2006,
       "propertyType": "Single Family Home",
       "status": "Exclusive listing",
@@ -900,7 +917,7 @@
       "distanceMiles": 90.1,
       "bearing": "S",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -921,6 +938,7 @@
       "beds": 3,
       "baths": 1,
       "sqft": 680,
+      "acres": 0.1,
       "yearBuilt": 2002,
       "propertyType": "Manufactured Home",
       "status": "Extended listing",
@@ -930,7 +948,7 @@
       "distanceMiles": 95.2,
       "bearing": "SSW",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -951,6 +969,7 @@
       "beds": 2,
       "baths": 2.1,
       "sqft": 2600,
+      "acres": 1.05,
       "yearBuilt": 2003,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -960,7 +979,7 @@
       "distanceMiles": 105,
       "bearing": "SE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -981,6 +1000,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1617,
+      "acres": 0.19,
       "yearBuilt": 1984,
       "propertyType": "Manufactured Home",
       "status": "Extended listing",
@@ -990,7 +1010,7 @@
       "distanceMiles": 107.4,
       "bearing": "S",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -1011,6 +1031,7 @@
       "beds": 3,
       "baths": 1,
       "sqft": 959,
+      "acres": 0.45,
       "yearBuilt": 1936,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -1020,7 +1041,7 @@
       "distanceMiles": 107.5,
       "bearing": "SSE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -1041,6 +1062,7 @@
       "beds": 2,
       "baths": 2,
       "sqft": 2258,
+      "acres": 1.03,
       "yearBuilt": 2006,
       "propertyType": "Single Family Home",
       "status": "Exclusive listing",
@@ -1050,7 +1072,7 @@
       "distanceMiles": 113,
       "bearing": "SSW",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -1071,6 +1093,7 @@
       "beds": 2,
       "baths": 2,
       "sqft": 1353,
+      "acres": 0.29,
       "yearBuilt": 1950,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -1080,7 +1103,7 @@
       "distanceMiles": 130.7,
       "bearing": "ESE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -1101,6 +1124,7 @@
       "beds": 3,
       "baths": 1.1,
       "sqft": 1615,
+      "acres": 1,
       "yearBuilt": 1978,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -1110,7 +1134,7 @@
       "distanceMiles": 131.2,
       "bearing": "SE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -1131,6 +1155,7 @@
       "beds": 1,
       "baths": 1,
       "sqft": 702,
+      "acres": 0.2,
       "yearBuilt": 2004,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -1140,7 +1165,7 @@
       "distanceMiles": 134.5,
       "bearing": "S",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -1161,6 +1186,7 @@
       "beds": 2,
       "baths": 2,
       "sqft": 1344,
+      "acres": 5,
       "yearBuilt": 1995,
       "propertyType": "Single Family Home",
       "status": "Extended listing",
@@ -1170,7 +1196,7 @@
       "distanceMiles": 139.7,
       "bearing": "S",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     },
@@ -1191,6 +1217,7 @@
       "beds": 4,
       "baths": 2,
       "sqft": 1512,
+      "acres": 6.78,
       "yearBuilt": 2010,
       "propertyType": "Manufactured Home",
       "status": "Extended listing",
@@ -1200,7 +1227,7 @@
       "distanceMiles": 248.9,
       "bearing": "SSE",
       "firstSeen": "2026-09-10T11:27:34.876Z",
-      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "lastSeen": "2026-09-10T11:36:25.845Z",
       "isNew": false,
       "priorPrice": null
     }
@@ -1274,27 +1301,59 @@
       return s.length ? s[Math.floor(s.length / 2)] : null;
     }
 
-    var nearest = ALL.reduce(function (a, b) {
-      return a == null || (b.distanceMiles != null && b.distanceMiles < a.distanceMiles) ? b : a;
-    }, null);
-    var within50 = ALL.filter(function (l) { return l.distanceMiles != null && l.distanceMiles <= 50; });
+    function drawFigures(rows) {
+      var nearest = rows.reduce(function (a, b) {
+        return a == null || (b.distanceMiles != null && b.distanceMiles < a.distanceMiles) ? b : a;
+      }, null);
+      var within50 = rows.filter(function (l) {
+        return l.distanceMiles != null && l.distanceMiles <= 50;
+      });
+      var prices = rows.map(function (l) { return l.price; }).filter(function (p) { return p != null; });
+      var biggest = rows.reduce(function (a, b) {
+        return a == null || (b.acres != null && b.acres > a.acres) ? b : a;
+      }, null);
 
-    document.getElementById('figures').innerHTML = [
-      { v: META.total, l: 'Properties listed', s: 'across ' + new Set(ALL.map(function (l) { return l.county; })).size + ' counties' },
-      { v: within50.length, l: 'Within 50 miles', s: 'commutable from McMinnville' },
-      { v: nearest ? nearest.distanceMiles + ' mi' : '—', l: 'Nearest listing', s: nearest ? nearest.city + ' · ' + nearest.bearing : '' },
-      { v: usdShort(median(ALL.map(function (l) { return l.price; }))), l: 'Median list price', s: usdShort(Math.min.apply(null, ALL.map(function (l) { return l.price; }))) + ' – ' + usdShort(Math.max.apply(null, ALL.map(function (l) { return l.price; }))) }
-    ].map(function (f) {
-      return '<div class="figure">' +
-        '<div class="figure-value">' + esc(f.v) + '</div>' +
-        '<div class="figure-label">' + esc(f.l) + '</div>' +
-        '<div class="figure-sub">' + esc(f.s) + '</div>' +
-      '</div>';
-    }).join('');
+      document.getElementById('figures').innerHTML = [
+        {
+          v: rows.length,
+          l: 'Properties shown',
+          s: 'of ' + META.total + ' listed in Oregon'
+        },
+        {
+          v: within50.length,
+          l: 'Within 50 miles',
+          s: 'commutable from McMinnville'
+        },
+        {
+          v: nearest ? nearest.distanceMiles + ' mi' : '—',
+          l: 'Nearest listing',
+          s: nearest ? nearest.city + ' · ' + nearest.bearing : 'no match'
+        },
+        {
+          v: prices.length ? usdShort(median(prices)) : '—',
+          l: 'Median list price',
+          s: prices.length
+            ? usdShort(Math.min.apply(null, prices)) + ' – ' + usdShort(Math.max.apply(null, prices))
+            : ''
+        },
+        {
+          v: biggest && biggest.acres != null ? biggest.acres.toFixed(2) + ' ac' : '—',
+          l: 'Largest lot',
+          s: biggest && biggest.acres != null ? biggest.city + ' · ' + biggest.county : ''
+        }
+      ].map(function (f) {
+        return '<div class="figure">' +
+          '<div class="figure-value">' + esc(f.v) + '</div>' +
+          '<div class="figure-label">' + esc(f.l) + '</div>' +
+          '<div class="figure-sub">' + esc(f.s) + '</div>' +
+        '</div>';
+      }).join('');
+    }
 
     /* ---------- filter wiring ---------- */
 
     var fDistance = document.getElementById('f-distance');
+    var fAcres = document.getElementById('f-acres');
     var fPrice = document.getElementById('f-price');
     var fBeds = document.getElementById('f-beds');
     var fType = document.getElementById('f-type');
@@ -1314,7 +1373,10 @@
 
     function visible() {
       var maxD = +fDistance.value, maxP = +fPrice.value, minB = +fBeds.value;
+      var minA = +fAcres.value;
       return ALL.filter(function (l) {
+        // Above a zero threshold an unknown lot size cannot be shown to clear it.
+        if (minA > 0 && !(l.acres > minA)) return false;
         if (l.distanceMiles != null && l.distanceMiles > maxD) return false;
         if (l.price != null && l.price > maxP) return false;
         if (minB && (l.beds == null || l.beds < minB)) return false;
@@ -1414,7 +1476,7 @@
     function drawTable(rows) {
       var body = document.getElementById('rows');
       if (!rows.length) {
-        body.innerHTML = '<tr class="empty-row"><td colspan="9">' +
+        body.innerHTML = '<tr class="empty-row"><td colspan="10">' +
           'No properties match these filters. Widen the distance or price range.</td></tr>';
         return;
       }
@@ -1433,6 +1495,7 @@
           '<td class="num">' + (l.beds == null ? '—' : l.beds) + ' / ' +
             (l.baths == null ? '—' : l.baths) + '</td>' +
           '<td class="num">' + (l.sqft == null ? '—' : l.sqft.toLocaleString('en-US')) + '</td>' +
+          '<td class="num">' + (l.acres == null ? '—' : l.acres.toFixed(2)) + '</td>' +
           '<td class="num">' + (l.yearBuilt == null ? '—' : l.yearBuilt) + '</td>' +
           '<td><span class="pill' + (/Exclusive/i.test(l.status || '') ? ' exclusive' : '') + '">' +
             esc((l.status || '—').replace(' listing', '')) + '</span></td>' +
@@ -1464,17 +1527,20 @@
     function render() {
       document.getElementById('o-distance').textContent = fDistance.value + ' mi';
       document.getElementById('o-price').textContent = usdShort(+fPrice.value);
+      document.getElementById('o-acres').textContent =
+        +fAcres.value === 0 ? 'any size' : (+fAcres.value).toFixed(2) + ' ac';
       current = visible();
+      drawFigures(current);
       drawPlot(current);
       drawTable(current);
     }
 
-    [fDistance, fPrice, fBeds, fType, fSource].forEach(function (el) {
+    [fDistance, fAcres, fPrice, fBeds, fType, fSource].forEach(function (el) {
       el.addEventListener('input', render);
     });
 
     document.getElementById('reset').addEventListener('click', function () {
-      fDistance.value = 250; fPrice.value = 1150000;
+      fDistance.value = 250; fPrice.value = 1150000; fAcres.value = 4;
       fBeds.value = '0'; fType.value = ''; fSource.value = '';
       render();
     });
