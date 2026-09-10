@@ -1,0 +1,1484 @@
+<title>Federal Homes Near McMinnville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=Public+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --paper: #eef1ea;
+    --surface: #ffffff;
+    --surface-sunk: #e4e9df;
+    --ink: #1b2420;
+    --ink-soft: #55625b;
+    --ink-faint: #7d8a82;
+    --contour: #a8926f;
+    --rule: #d3dacd;
+    --moss: #2f6b4f;
+    --water: #2b6ca3;
+    --ochre: #a8761f;
+    --signal: #b3341f;
+    --ok: #2f6b4f;
+    --idle: #7d8a82;
+
+    --step-0: 0.875rem;
+    --step-1: 1rem;
+    --step-2: 1.35rem;
+    --step-3: 2rem;
+    --step-4: 2.75rem;
+  }
+
+  :root:not([data-theme="light"]) {
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #111714;
+      --surface: #1a2320;
+      --surface-sunk: #151d1a;
+      --ink: #e5ece6;
+      --ink-soft: #9daba3;
+      --ink-faint: #74827a;
+      --contour: #8a7550;
+      --rule: #2b3833;
+      --moss: #66b28c;
+      --water: #6aa9dc;
+      --ochre: #d3a34a;
+      --signal: #e0705a;
+      --ok: #66b28c;
+      --idle: #74827a;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #111714;
+    --surface: #1a2320;
+    --surface-sunk: #151d1a;
+    --ink: #e5ece6;
+    --ink-soft: #9daba3;
+    --ink-faint: #74827a;
+    --contour: #8a7550;
+    --rule: #2b3833;
+    --moss: #66b28c;
+    --water: #6aa9dc;
+    --ochre: #d3a34a;
+    --signal: #e0705a;
+    --ok: #66b28c;
+    --idle: #74827a;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding-block: 2.5rem 4rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: var(--step-1);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell {
+    max-width: 1180px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--contour);
+  }
+
+  h1 {
+    font-family: Spectral, Georgia, serif;
+    font-weight: 600;
+    font-size: var(--step-4);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .standfirst {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-size: var(--step-1);
+  }
+
+  .origin-line {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+  }
+
+  /* ---------- source ledger ---------- */
+
+  .ledger {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .ledger-item {
+    background: var(--surface);
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .ledger-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .ledger-name {
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
+  }
+
+  .ledger-count {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 1.15rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .ledger-note {
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+    line-height: 1.35;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+    vertical-align: 0.05em;
+  }
+  .dot.live { background: var(--ok); }
+  .dot.empty { background: var(--idle); }
+  .dot.down { background: var(--signal); }
+
+  /* ---------- summary figures ---------- */
+
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem 2rem;
+    padding-block: 0.25rem 1.25rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .figure { display: flex; flex-direction: column; gap: 0.15rem; }
+
+  .figure-value {
+    font-family: Spectral, Georgia, serif;
+    font-size: var(--step-3);
+    font-weight: 600;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .figure-label {
+    font-size: 0.74rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .figure-sub { font-size: 0.8rem; color: var(--ink-soft); }
+
+  /* ---------- survey + controls ---------- */
+
+  .survey-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 260px);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .panel-title {
+    font-family: Spectral, Georgia, serif;
+    font-size: var(--step-2);
+    font-weight: 600;
+    margin: 0 0 0.15rem;
+  }
+
+  .panel-hint {
+    margin: 0 0 1rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  #plot { width: 100%; height: auto; display: block; touch-action: none; }
+
+  .plot-wrap { position: relative; }
+
+  .tip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.45rem 0.6rem;
+    font-size: 0.76rem;
+    line-height: 1.35;
+    max-width: 220px;
+    border-radius: 2px;
+    transform: translate(-50%, -115%);
+    opacity: 0;
+    transition: opacity 120ms;
+    z-index: 5;
+  }
+  .tip.on { opacity: 1; }
+  .tip b { font-weight: 700; }
+  .tip span {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    opacity: 0.85;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background: var(--surface-sunk);
+    padding: 1.15rem;
+    border: 1px solid var(--rule);
+  }
+
+  .control { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .control label {
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .control output {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    color: var(--ink);
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant-numeric: tabular-nums;
+  }
+
+  input[type="range"] { width: 100%; accent-color: var(--moss); }
+
+  select {
+    width: 100%;
+    padding: 0.4rem 0.5rem;
+    font: inherit;
+    font-size: 0.85rem;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+  }
+
+  .swatches {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+  }
+  .swatch { display: flex; align-items: center; gap: 0.5rem; }
+  .swatch i {
+    width: 10px; height: 10px; border-radius: 50%;
+    flex: none;
+  }
+
+  button.reset {
+    font: inherit;
+    font-size: 0.8rem;
+    padding: 0.45rem 0.6rem;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink-faint);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  button.reset:hover { background: var(--surface); }
+
+  /* ---------- table ---------- */
+
+  .table-wrap { overflow-x: auto; border-top: 2px solid var(--ink); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+
+  th {
+    text-align: left;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    padding: 0.7rem 0.6rem;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+  th:hover { color: var(--ink); }
+  th[aria-sort] { color: var(--ink); }
+  th .arrow { opacity: 0.4; font-size: 0.85em; }
+
+  td {
+    padding: 0.7rem 0.6rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  tbody tr:hover { background: var(--surface); }
+  tbody tr.lit { background: var(--surface); box-shadow: inset 3px 0 0 var(--moss); }
+
+  .num {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .addr { font-weight: 500; }
+  .addr a { color: var(--water); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .addr a:focus-visible { outline: 2px solid var(--moss); outline-offset: 2px; }
+  .place { color: var(--ink-soft); font-size: 0.78rem; }
+
+  .band { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .band i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+
+  .pill {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .pill.exclusive { border-color: var(--moss); color: var(--moss); }
+  .pill.new { border-color: var(--signal); color: var(--signal); }
+
+  .empty-row td {
+    padding: 2.5rem 0.6rem;
+    text-align: center;
+    color: var(--ink-faint);
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  footer a { color: var(--water); }
+
+  @media (max-width: 820px) {
+    .survey-row { grid-template-columns: minmax(0, 1fr); }
+    h1 { font-size: var(--step-3); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+
+<div class="shell">
+  <header class="masthead">
+    <div class="eyebrow">Public inventory survey &middot; State of Oregon</div>
+    <h1>Government-held houses, measured out from McMinnville</h1>
+    <p class="standfirst">
+      Every residential property currently held or auctioned by a federal agency in
+      Oregon, pulled straight from the agencies' own listing systems and ranked by
+      straight-line distance from McMinnville.
+    </p>
+    <div class="origin-line">
+      <span>ORIGIN 45.2101&deg;N 123.1951&deg;W</span>
+      <span id="meta-generated"></span>
+      <span id="meta-total"></span>
+    </div>
+  </header>
+
+  <section aria-label="Source status">
+    <div class="ledger" id="ledger"></div>
+  </section>
+
+  <section class="figures" id="figures" aria-label="Summary"></section>
+
+  <section class="survey-row">
+    <div>
+      <h2 class="panel-title">Distance survey</h2>
+      <p class="panel-hint">
+        Each property plotted at its true compass bearing from McMinnville. Rings mark
+        25, 50, 100, 150 and 250 miles. Hover a marker to identify it.
+      </p>
+      <div class="plot-wrap">
+        <svg id="plot" viewBox="0 0 560 560" role="img"
+             aria-label="Radial plot of listings by distance and bearing from McMinnville"></svg>
+        <div class="tip" id="tip" role="status"></div>
+      </div>
+    </div>
+
+    <aside class="controls" aria-label="Filters">
+      <div class="control">
+        <label for="f-distance">Within <output id="o-distance"></output></label>
+        <input type="range" id="f-distance" min="20" max="250" step="5" value="250">
+      </div>
+      <div class="control">
+        <label for="f-price">Up to <output id="o-price"></output></label>
+        <input type="range" id="f-price" min="150000" max="1150000" step="25000" value="1150000">
+      </div>
+      <div class="control">
+        <label for="f-beds">Bedrooms</label>
+        <select id="f-beds">
+          <option value="0">Any</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="f-type">Property type</label>
+        <select id="f-type"><option value="">All types</option></select>
+      </div>
+      <div class="control">
+        <label for="f-source">Agency</label>
+        <select id="f-source"><option value="">All agencies</option></select>
+      </div>
+      <div class="swatches" aria-hidden="true">
+        <div class="swatch"><i style="background:var(--moss)"></i> Under $250k</div>
+        <div class="swatch"><i style="background:var(--water)"></i> $250k &ndash; $500k</div>
+        <div class="swatch"><i style="background:var(--ochre)"></i> Over $500k</div>
+      </div>
+      <button class="reset" id="reset" type="button">Reset filters</button>
+    </aside>
+  </section>
+
+  <section aria-label="Listings">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr id="head-row">
+            <th data-key="distanceMiles" data-type="num" aria-sort="ascending">Miles <span class="arrow">&darr;</span></th>
+            <th data-key="address" data-type="str">Property</th>
+            <th data-key="county" data-type="str">County</th>
+            <th data-key="price" data-type="num">Price</th>
+            <th data-key="beds" data-type="num">Bd / Ba</th>
+            <th data-key="sqft" data-type="num">Sq ft</th>
+            <th data-key="yearBuilt" data-type="num">Built</th>
+            <th data-key="status" data-type="str">Listing</th>
+            <th data-key="saleDate" data-type="str">Bid opens</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <div id="foot-sources"></div>
+    <div>
+      Distances are straight-line (great-circle) miles from McMinnville, not drive time.
+      Prices are agency list prices and change without notice &mdash; confirm every figure
+      on the agency listing before acting on it.
+    </div>
+  </footer>
+</div>
+
+<script id="listings-data" type="application/json">{
+  "meta": {
+    "generatedAt": "2026-09-10T11:31:26.088Z",
+    "origin": {
+      "name": "McMinnville, OR",
+      "lat": 45.2101,
+      "lon": -123.1951
+    },
+    "state": "OR",
+    "total": 21,
+    "newSinceLastRun": 0,
+    "removedSinceLastRun": [],
+    "sources": [
+      {
+        "id": "hud",
+        "label": "HUD Home Store",
+        "custody": "Government-owned (FHA foreclosure, HUD REO)",
+        "url": "https://www.hudhomestore.gov/searchresult?citystate=OR",
+        "ok": true,
+        "count": 21,
+        "note": null,
+        "ms": 718
+      },
+      {
+        "id": "usda",
+        "label": "USDA Rural Development REO",
+        "custody": "Government-owned (USDA foreclosure inventory)",
+        "url": "https://properties.sc.egov.usda.gov/resales/public/searchSFH",
+        "ok": true,
+        "count": 0,
+        "note": "USDA currently holds no Oregon inventory",
+        "ms": 683
+      },
+      {
+        "id": "gsa",
+        "label": "GSA Real Property Sales",
+        "custody": "Federal surplus / forfeited real property",
+        "url": "https://realestatesales.gov/our-listing/",
+        "ok": true,
+        "count": 0,
+        "note": null,
+        "ms": 3513
+      },
+      {
+        "id": "irs",
+        "label": "IRS Seized Property Auctions",
+        "custody": "Seized by IRS for unpaid taxes (IRC §6331)",
+        "url": "https://www.irsauctions.gov/auction/items",
+        "ok": true,
+        "count": 0,
+        "note": null,
+        "ms": 1644
+      }
+    ]
+  },
+  "listings": [
+    {
+      "id": "hud:431-505692",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-505692",
+      "address": "3320 Glendale Ave NE",
+      "city": "Salem",
+      "county": "Marion",
+      "state": "OR",
+      "zip": "97301",
+      "lat": 44.9643,
+      "lon": -122.993,
+      "price": 220000,
+      "beds": 3,
+      "baths": 1,
+      "sqft": 1248,
+      "yearBuilt": 1961,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/IMG_8345_604472_458743913.jpg",
+      "notes": "UI (Uninsured) · All Bidders",
+      "distanceMiles": 19.6,
+      "bearing": "SSE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-483103",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-483103",
+      "address": "15329 SW Sunset Blvd",
+      "city": "Sherwood",
+      "county": "Washington",
+      "state": "OR",
+      "zip": "97140",
+      "lat": 45.3486,
+      "lon": -122.834,
+      "price": 858000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 2554,
+      "yearBuilt": 1990,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/IMG_4967-HDR_796427_593604986.jpg",
+      "notes": "IN (Insured) · All Bidders",
+      "distanceMiles": 20,
+      "bearing": "ENE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-660119",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-660119",
+      "address": "17115 SW Soren Ct",
+      "city": "Beaverton",
+      "county": "Washington",
+      "state": "OR",
+      "zip": "97007",
+      "lat": 45.4543,
+      "lon": -122.853,
+      "price": 815000,
+      "beds": 4,
+      "baths": 2.1,
+      "sqft": 3125,
+      "yearBuilt": 1999,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/front_(2)_718029_982937908.JPG",
+      "notes": "IN (Insured) · All Bidders",
+      "distanceMiles": 23.7,
+      "bearing": "NE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-462852",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-462852",
+      "address": "1 Condolea Dr",
+      "city": "Lake Oswego",
+      "county": "Multnomah",
+      "state": "OR",
+      "zip": "97035",
+      "lat": 45.4338,
+      "lon": -122.706,
+      "price": 505000,
+      "beds": 1,
+      "baths": 1.1,
+      "sqft": 1512,
+      "yearBuilt": 1972,
+      "propertyType": "Condo",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/Front_605559_509183129.png",
+      "notes": "IN (Insured) · All Bidders",
+      "distanceMiles": 28.3,
+      "bearing": "ENE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-657198",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-657198",
+      "address": "15008 NW Aberdeen Dr",
+      "city": "Portland",
+      "county": "Washington",
+      "state": "OR",
+      "zip": "97229",
+      "lat": 45.548,
+      "lon": -122.83,
+      "price": 507000,
+      "beds": 2,
+      "baths": 2.1,
+      "sqft": 1807,
+      "yearBuilt": 1998,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/Front_727165_72654810.jpg",
+      "notes": "IN (Insured) · All Bidders",
+      "distanceMiles": 29.3,
+      "bearing": "NE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-760880",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-760880",
+      "address": "13417 Squire Dr",
+      "city": "Oregon City",
+      "county": "Clackamas",
+      "state": "OR",
+      "zip": "97045",
+      "lat": 45.3207,
+      "lon": -122.59,
+      "price": 508500,
+      "beds": 4,
+      "baths": 2.1,
+      "sqft": 1882,
+      "yearBuilt": 1994,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/WhatsApp_Image_2026-07-14_at_10.42.54_AM_604308_924403945.jpg",
+      "notes": "IE (Insured Escrow) · All Bidders",
+      "distanceMiles": 30.4,
+      "bearing": "ENE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-722062",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-722062",
+      "address": "8250 SE 76th Pl",
+      "city": "Portland",
+      "county": "Multnomah",
+      "state": "OR",
+      "zip": "97206",
+      "lat": 45.4638,
+      "lon": -122.584,
+      "price": 255000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1188,
+      "yearBuilt": 1998,
+      "propertyType": "Manufactured Home",
+      "status": "Exclusive listing",
+      "saleDate": "09/14/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/IMG_5360-HDR_796427_548316631.jpg",
+      "notes": "UI (Uninsured) · Owner Occupants, Nonprofits, and Government Agencies only",
+      "distanceMiles": 34.5,
+      "bearing": "ENE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-768385",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-768385",
+      "address": "1902 10th St",
+      "city": "Tillamook",
+      "county": "Tillamook",
+      "state": "OR",
+      "zip": "97141",
+      "lat": 45.4514,
+      "lon": -123.845,
+      "price": 330000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1235,
+      "yearBuilt": 1920,
+      "propertyType": "Single Family Home",
+      "status": "Exclusive listing",
+      "saleDate": "09/14/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/front_659399_691689741.jpg",
+      "notes": "IN (Insured) · Owner Occupants, Nonprofits, and Government Agencies only",
+      "distanceMiles": 35.7,
+      "bearing": "WNW",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-431333",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-431333",
+      "address": "224 N Hayden Bay Dr",
+      "city": "Portland",
+      "county": "Multnomah",
+      "state": "OR",
+      "zip": "97217",
+      "lat": 45.6101,
+      "lon": -122.67,
+      "price": 312000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 2001,
+      "yearBuilt": 1973,
+      "propertyType": "Condo",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/224_N_Hayden_Bay_Dr_01_874560_503159372.jpg",
+      "notes": "IN (Insured) · All Bidders",
+      "distanceMiles": 37.6,
+      "bearing": "NE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-476558",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-476558",
+      "address": "34033 Totem Pole Rd",
+      "city": "Lebanon",
+      "county": "Linn",
+      "state": "OR",
+      "zip": "97355",
+      "lat": 44.5764,
+      "lon": -122.809,
+      "price": 386000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1592,
+      "yearBuilt": 1977,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/IMG_5209_604472_945170142.JPG",
+      "notes": "UI (Uninsured) · All Bidders",
+      "distanceMiles": 47.7,
+      "bearing": "SSE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-528789",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-528789",
+      "address": "747 Holbrook Ln",
+      "city": "Creswell",
+      "county": "Lane",
+      "state": "OR",
+      "zip": "97426",
+      "lat": 43.9114,
+      "lon": -123.024,
+      "price": 484000,
+      "beds": 2,
+      "baths": 2.1,
+      "sqft": 2206,
+      "yearBuilt": 2006,
+      "propertyType": "Single Family Home",
+      "status": "Exclusive listing",
+      "saleDate": "09/18/2026",
+      "photoUrl": null,
+      "notes": "IE (Insured Escrow) · Owner Occupants, Nonprofits, and Government Agencies only",
+      "distanceMiles": 90.1,
+      "bearing": "S",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-424095",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-424095",
+      "address": "64 Outer Dr",
+      "city": "Florence",
+      "county": "Lane",
+      "state": "OR",
+      "zip": "97439",
+      "lat": 43.9914,
+      "lon": -124.097,
+      "price": 150000,
+      "beds": 3,
+      "baths": 1,
+      "sqft": 680,
+      "yearBuilt": 2002,
+      "propertyType": "Manufactured Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/front_630742_523600534.jpg",
+      "notes": "IN (Insured) · All Bidders",
+      "distanceMiles": 95.2,
+      "bearing": "SSW",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-489772",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-489772",
+      "address": "17084 Lady Caroline Dr",
+      "city": "Sisters",
+      "county": "Deschutes",
+      "state": "OR",
+      "zip": "97759",
+      "lat": 44.3012,
+      "lon": -121.479,
+      "price": 1115000,
+      "beds": 2,
+      "baths": 2.1,
+      "sqft": 2600,
+      "yearBuilt": 2003,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/unnamed-2_699687_256201574.png",
+      "notes": "IE (Insured Escrow) · All Bidders",
+      "distanceMiles": 105,
+      "bearing": "SE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-762656",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-762656",
+      "address": "317 Applegate Ave",
+      "city": "Drain",
+      "county": "Douglas",
+      "state": "OR",
+      "zip": "97435",
+      "lat": 43.6578,
+      "lon": -123.317,
+      "price": 263000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1617,
+      "yearBuilt": 1984,
+      "propertyType": "Manufactured Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/1000082669_868060_342864426.jpg",
+      "notes": "UI (Uninsured) · All Bidders",
+      "distanceMiles": 107.4,
+      "bearing": "S",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-757488",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-757488",
+      "address": "76336 Willamette Way",
+      "city": "Oakridge",
+      "county": "Lane",
+      "state": "OR",
+      "zip": "97463",
+      "lat": 43.7445,
+      "lon": -122.464,
+      "price": 236000,
+      "beds": 3,
+      "baths": 1,
+      "sqft": 959,
+      "yearBuilt": 1936,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/dining_630742_155275027.png",
+      "notes": "IN (Insured) · All Bidders",
+      "distanceMiles": 107.5,
+      "bearing": "SSE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-490646",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-490646",
+      "address": "41515 State Highway 38",
+      "city": "Reedsport",
+      "county": "Douglas",
+      "state": "OR",
+      "zip": "97467",
+      "lat": 43.6572,
+      "lon": -123.916,
+      "price": 684000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 2258,
+      "yearBuilt": 2006,
+      "propertyType": "Single Family Home",
+      "status": "Exclusive listing",
+      "saleDate": "09/18/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/Image00001_811292_654735817.jpg",
+      "notes": "IN (Insured) · Owner Occupants, Nonprofits, and Government Agencies only",
+      "distanceMiles": 113,
+      "bearing": "SSW",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-752560",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-752560",
+      "address": "415 NW Locust St",
+      "city": "Prineville",
+      "county": "Crook",
+      "state": "OR",
+      "zip": "97754",
+      "lat": 44.3041,
+      "lon": -120.857,
+      "price": 249000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1353,
+      "yearBuilt": 1950,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/IMG_9157_604472_13379697.jpg",
+      "notes": "IE (Insured Escrow) · All Bidders",
+      "distanceMiles": 130.7,
+      "bearing": "ESE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-495789",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-495789",
+      "address": "15972 Sunrise Blvd",
+      "city": "La Pine",
+      "county": "Deschutes",
+      "state": "OR",
+      "zip": "97739",
+      "lat": 43.7296,
+      "lon": -121.528,
+      "price": 234000,
+      "beds": 3,
+      "baths": 1.1,
+      "sqft": 1615,
+      "yearBuilt": 1978,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/Sunrise-2_699687_687809071.jpg",
+      "notes": "UI (Uninsured) · All Bidders",
+      "distanceMiles": 131.2,
+      "bearing": "SE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-442831",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-442831",
+      "address": "119 Pleasant Ave",
+      "city": "Roseburg",
+      "county": "Douglas",
+      "state": "OR",
+      "zip": "97470",
+      "lat": 43.2669,
+      "lon": -123.354,
+      "price": 160000,
+      "beds": 1,
+      "baths": 1,
+      "sqft": 702,
+      "yearBuilt": 2004,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/1_868060_518411182.jpg",
+      "notes": "UI (Uninsured) · All Bidders",
+      "distanceMiles": 134.5,
+      "bearing": "S",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-456965",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-456965",
+      "address": "338 Topaz Ln",
+      "city": "Roseburg",
+      "county": "Douglas",
+      "state": "OR",
+      "zip": "97470",
+      "lat": 43.1951,
+      "lon": -123.418,
+      "price": 448000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1344,
+      "yearBuilt": 1995,
+      "propertyType": "Single Family Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/24_868060_188838083.jpg",
+      "notes": "UI (Uninsured) · All Bidders",
+      "distanceMiles": 139.7,
+      "bearing": "S",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    },
+    {
+      "id": "hud:431-773122",
+      "source": "hud",
+      "sourceLabel": "HUD Home Store",
+      "custody": "Government-owned (FHA foreclosure, HUD REO)",
+      "listingUrl": "https://www.hudhomestore.gov/propertydetails?caseNumber=431-773122",
+      "address": "91942 Highway 140",
+      "city": "Lakeview",
+      "county": "Lake",
+      "state": "OR",
+      "zip": "97630",
+      "lat": 42.1793,
+      "lon": -120.5,
+      "price": 251000,
+      "beds": 4,
+      "baths": 2,
+      "sqft": 1512,
+      "yearBuilt": 2010,
+      "propertyType": "Manufactured Home",
+      "status": "Extended listing",
+      "saleDate": "09/11/2026",
+      "photoUrl": "https://res.cloudinary.com/yardi/image/upload/q_auto,f_auto,c_limit/d_hhs:themes:common:images:NoImage.jpg/hhs/20260518_201851_792118_498649937.jpg",
+      "notes": "IE (Insured Escrow) · All Bidders",
+      "distanceMiles": 248.9,
+      "bearing": "SSE",
+      "firstSeen": "2026-09-10T11:27:34.876Z",
+      "lastSeen": "2026-09-10T11:31:26.088Z",
+      "isNew": false,
+      "priorPrice": null
+    }
+  ]
+}</script>
+
+<script>
+  (function () {
+    'use strict';
+
+    var DATA = JSON.parse(document.getElementById('listings-data').textContent);
+    var ALL = DATA.listings;
+    var META = DATA.meta;
+
+    var usd = function (n) {
+      return n == null ? '—' : '$' + Math.round(n).toLocaleString('en-US');
+    };
+    var usdShort = function (n) {
+      return n >= 1000000
+        ? '$' + (n / 1000000).toFixed(2).replace(/0$/, '') + 'M'
+        : '$' + Math.round(n / 1000) + 'k';
+    };
+    var esc = function (s) {
+      return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    };
+
+    function band(price) {
+      if (price == null) return 'var(--ink-faint)';
+      if (price < 250000) return 'var(--moss)';
+      if (price <= 500000) return 'var(--water)';
+      return 'var(--ochre)';
+    }
+
+    /* ---------- masthead meta ---------- */
+
+    document.getElementById('meta-generated').textContent =
+      'PULLED ' + new Date(META.generatedAt).toLocaleString('en-US', {
+        dateStyle: 'medium', timeStyle: 'short'
+      }).toUpperCase();
+    document.getElementById('meta-total').textContent = META.total + ' PROPERTIES';
+
+    /* ---------- source ledger ---------- */
+
+    document.getElementById('ledger').innerHTML = META.sources.map(function (s) {
+      var state = !s.ok ? 'down' : s.count > 0 ? 'live' : 'empty';
+      var note = !s.ok
+        ? 'Fetch failed: ' + esc(s.error || 'unknown error')
+        : s.note
+          ? esc(s.note)
+          : esc(s.custody);
+      return '<div class="ledger-item">' +
+        '<div class="ledger-head">' +
+          '<span class="ledger-name"><span class="dot ' + state + '"></span>' + esc(s.label) + '</span>' +
+          '<span class="ledger-count">' + s.count + '</span>' +
+        '</div>' +
+        '<div class="ledger-note">' + note + '</div>' +
+      '</div>';
+    }).join('');
+
+    document.getElementById('foot-sources').innerHTML = 'Sources: ' +
+      META.sources.map(function (s) {
+        return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.label) + '</a>';
+      }).join(' &middot; ');
+
+    /* ---------- summary figures ---------- */
+
+    function median(nums) {
+      var s = nums.filter(function (n) { return n != null; }).sort(function (a, b) { return a - b; });
+      return s.length ? s[Math.floor(s.length / 2)] : null;
+    }
+
+    var nearest = ALL.reduce(function (a, b) {
+      return a == null || (b.distanceMiles != null && b.distanceMiles < a.distanceMiles) ? b : a;
+    }, null);
+    var within50 = ALL.filter(function (l) { return l.distanceMiles != null && l.distanceMiles <= 50; });
+
+    document.getElementById('figures').innerHTML = [
+      { v: META.total, l: 'Properties listed', s: 'across ' + new Set(ALL.map(function (l) { return l.county; })).size + ' counties' },
+      { v: within50.length, l: 'Within 50 miles', s: 'commutable from McMinnville' },
+      { v: nearest ? nearest.distanceMiles + ' mi' : '—', l: 'Nearest listing', s: nearest ? nearest.city + ' · ' + nearest.bearing : '' },
+      { v: usdShort(median(ALL.map(function (l) { return l.price; }))), l: 'Median list price', s: usdShort(Math.min.apply(null, ALL.map(function (l) { return l.price; }))) + ' – ' + usdShort(Math.max.apply(null, ALL.map(function (l) { return l.price; }))) }
+    ].map(function (f) {
+      return '<div class="figure">' +
+        '<div class="figure-value">' + esc(f.v) + '</div>' +
+        '<div class="figure-label">' + esc(f.l) + '</div>' +
+        '<div class="figure-sub">' + esc(f.s) + '</div>' +
+      '</div>';
+    }).join('');
+
+    /* ---------- filter wiring ---------- */
+
+    var fDistance = document.getElementById('f-distance');
+    var fPrice = document.getElementById('f-price');
+    var fBeds = document.getElementById('f-beds');
+    var fType = document.getElementById('f-type');
+    var fSource = document.getElementById('f-source');
+
+    function fillSelect(el, values) {
+      values.filter(Boolean).sort().forEach(function (v) {
+        var o = document.createElement('option');
+        o.value = v; o.textContent = v;
+        el.appendChild(o);
+      });
+    }
+    fillSelect(fType, Array.from(new Set(ALL.map(function (l) { return l.propertyType; }))));
+    fillSelect(fSource, Array.from(new Set(ALL.map(function (l) { return l.sourceLabel; }))));
+
+    var sort = { key: 'distanceMiles', type: 'num', dir: 1 };
+
+    function visible() {
+      var maxD = +fDistance.value, maxP = +fPrice.value, minB = +fBeds.value;
+      return ALL.filter(function (l) {
+        if (l.distanceMiles != null && l.distanceMiles > maxD) return false;
+        if (l.price != null && l.price > maxP) return false;
+        if (minB && (l.beds == null || l.beds < minB)) return false;
+        if (fType.value && l.propertyType !== fType.value) return false;
+        if (fSource.value && l.sourceLabel !== fSource.value) return false;
+        return true;
+      }).sort(function (a, b) {
+        var x = a[sort.key], y = b[sort.key];
+        if (x == null) return 1;
+        if (y == null) return -1;
+        if (sort.type === 'num') return (x - y) * sort.dir;
+        return String(x).localeCompare(String(y)) * sort.dir;
+      });
+    }
+
+    /* ---------- radial survey plot ---------- */
+
+    var CX = 280, CY = 280, RMAX = 226, DMAX = 260;
+    var RINGS = [25, 50, 100, 150, 250];
+    var radius = function (miles) { return RMAX * Math.sqrt(Math.min(miles, DMAX) / DMAX); };
+
+    var plot = document.getElementById('plot');
+    var tip = document.getElementById('tip');
+
+    function drawPlot(rows) {
+      var parts = [];
+
+      RINGS.forEach(function (mi) {
+        parts.push('<circle cx="' + CX + '" cy="' + CY + '" r="' + radius(mi).toFixed(1) +
+          '" fill="none" stroke="var(--contour)" stroke-width="1" stroke-opacity="0.5" ' +
+          (mi === 250 ? '' : 'stroke-dasharray="2 4" ') + '/>');
+        parts.push('<text x="' + (CX + 4) + '" y="' + (CY - radius(mi) + 12).toFixed(1) +
+          '" fill="var(--contour)" font-family="IBM Plex Mono, monospace" font-size="10">' +
+          mi + ' mi</text>');
+      });
+
+      [['N', 0, -1], ['E', 1, 0], ['S', 0, 1], ['W', -1, 0]].forEach(function (d) {
+        parts.push('<text x="' + (CX + d[1] * (RMAX + 18)) + '" y="' + (CY + d[2] * (RMAX + 18) + 4) +
+          '" fill="var(--ink-faint)" font-family="Public Sans, sans-serif" font-size="11" ' +
+          'font-weight="700" text-anchor="middle">' + d[0] + '</text>');
+      });
+
+      parts.push('<line x1="' + (CX - RMAX) + '" y1="' + CY + '" x2="' + (CX + RMAX) + '" y2="' + CY +
+        '" stroke="var(--rule)" stroke-width="1"/>');
+      parts.push('<line x1="' + CX + '" y1="' + (CY - RMAX) + '" x2="' + CX + '" y2="' + (CY + RMAX) +
+        '" stroke="var(--rule)" stroke-width="1"/>');
+
+      rows.forEach(function (l, i) {
+        if (l.distanceMiles == null || l.lat == null) return;
+        var dx = (l.lon - META.origin.lon) * Math.cos(META.origin.lat * Math.PI / 180);
+        var dy = l.lat - META.origin.lat;
+        var theta = Math.atan2(dx, dy);
+        var r = radius(l.distanceMiles);
+        var x = CX + r * Math.sin(theta);
+        var y = CY - r * Math.cos(theta);
+        parts.push('<circle class="mark" data-i="' + i + '" cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) +
+          '" r="6" fill="' + band(l.price) + '" fill-opacity="0.85" stroke="var(--surface)" ' +
+          'stroke-width="1.5" tabindex="0" role="img" aria-label="' +
+          esc(l.address + ', ' + l.city + ', ' + l.distanceMiles + ' miles') + '"/>');
+      });
+
+      parts.push('<circle cx="' + CX + '" cy="' + CY + '" r="4" fill="var(--signal)"/>');
+      parts.push('<text x="' + (CX - 10) + '" y="' + (CY + 4) +
+        '" fill="var(--ink)" font-family="Public Sans, sans-serif" font-size="11" ' +
+        'font-weight="700" text-anchor="end">McMinnville</text>');
+
+      plot.innerHTML = parts.join('');
+    }
+
+    var current = [];
+
+    plot.addEventListener('mouseover', function (e) {
+      var mark = e.target.closest('.mark');
+      if (!mark) return;
+      var l = current[+mark.dataset.i];
+      tip.innerHTML = '<b>' + esc(l.address) + '</b><br>' + esc(l.city) + ', OR &middot; ' +
+        usd(l.price) + '<br><span>' + l.distanceMiles + ' mi ' + esc(l.bearing) + '</span>';
+      var box = plot.getBoundingClientRect();
+      tip.style.left = (mark.cx.baseVal.value / 560 * box.width) + 'px';
+      tip.style.top = (mark.cy.baseVal.value / 560 * box.height) + 'px';
+      tip.classList.add('on');
+      lightRow(l.id);
+    });
+    plot.addEventListener('mouseout', function () {
+      tip.classList.remove('on');
+      lightRow(null);
+    });
+
+    function lightRow(id) {
+      document.querySelectorAll('#rows tr').forEach(function (tr) {
+        tr.classList.toggle('lit', id != null && tr.dataset.id === id);
+      });
+    }
+
+    /* ---------- table ---------- */
+
+    function drawTable(rows) {
+      var body = document.getElementById('rows');
+      if (!rows.length) {
+        body.innerHTML = '<tr class="empty-row"><td colspan="9">' +
+          'No properties match these filters. Widen the distance or price range.</td></tr>';
+        return;
+      }
+      body.innerHTML = rows.map(function (l) {
+        return '<tr data-id="' + esc(l.id) + '">' +
+          '<td class="num">' + (l.distanceMiles == null ? '—' : l.distanceMiles) +
+            ' <span class="place">' + esc(l.bearing || '') + '</span></td>' +
+          '<td class="addr"><a href="' + esc(l.listingUrl) + '" target="_blank" rel="noopener">' +
+            esc(l.address) + '</a>' +
+            (l.isNew ? ' <span class="pill new">New</span>' : '') +
+            '<div class="place">' + esc(l.city) + ', OR ' + esc(l.zip) + ' &middot; ' +
+            esc(l.propertyType || '') + '</div></td>' +
+          '<td>' + esc(l.county) + '</td>' +
+          '<td class="num"><span class="band"><i style="background:' + band(l.price) + '"></i>' +
+            usd(l.price) + '</span></td>' +
+          '<td class="num">' + (l.beds == null ? '—' : l.beds) + ' / ' +
+            (l.baths == null ? '—' : l.baths) + '</td>' +
+          '<td class="num">' + (l.sqft == null ? '—' : l.sqft.toLocaleString('en-US')) + '</td>' +
+          '<td class="num">' + (l.yearBuilt == null ? '—' : l.yearBuilt) + '</td>' +
+          '<td><span class="pill' + (/Exclusive/i.test(l.status || '') ? ' exclusive' : '') + '">' +
+            esc((l.status || '—').replace(' listing', '')) + '</span></td>' +
+          '<td class="num">' + esc(l.saleDate || '—') + '</td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    document.getElementById('head-row').addEventListener('click', function (e) {
+      var th = e.target.closest('th');
+      if (!th) return;
+      var key = th.dataset.key;
+      sort.dir = sort.key === key ? -sort.dir : 1;
+      sort.key = key;
+      sort.type = th.dataset.type;
+      document.querySelectorAll('#head-row th').forEach(function (h) {
+        h.removeAttribute('aria-sort');
+        var a = h.querySelector('.arrow');
+        if (a) a.remove();
+      });
+      th.setAttribute('aria-sort', sort.dir === 1 ? 'ascending' : 'descending');
+      th.insertAdjacentHTML('beforeend',
+        ' <span class="arrow">' + (sort.dir === 1 ? '↓' : '↑') + '</span>');
+      render();
+    });
+
+    /* ---------- render loop ---------- */
+
+    function render() {
+      document.getElementById('o-distance').textContent = fDistance.value + ' mi';
+      document.getElementById('o-price').textContent = usdShort(+fPrice.value);
+      current = visible();
+      drawPlot(current);
+      drawTable(current);
+    }
+
+    [fDistance, fPrice, fBeds, fType, fSource].forEach(function (el) {
+      el.addEventListener('input', render);
+    });
+
+    document.getElementById('reset').addEventListener('click', function () {
+      fDistance.value = 250; fPrice.value = 1150000;
+      fBeds.value = '0'; fType.value = ''; fSource.value = '';
+      render();
+    });
+
+    render();
+  })();
+</script>
