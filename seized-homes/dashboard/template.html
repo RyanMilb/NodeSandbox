@@ -402,6 +402,14 @@
     color: var(--ink-faint);
   }
 
+  .lot-note {
+    margin: 0.85rem 0 0;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--contour);
+    padding-left: 0.7rem;
+  }
+
   footer {
     border-top: 1px solid var(--rule);
     padding-top: 1.25rem;
@@ -428,10 +436,10 @@
     <div class="eyebrow">Public inventory survey &middot; State of Oregon</div>
     <h1>Government-held houses, measured out from McMinnville</h1>
     <p class="standfirst">
-      Every residential property currently held or auctioned by a federal agency in
-      Oregon, pulled straight from the agencies' own listing systems and ranked by
-      straight-line distance from McMinnville. Showing lots over four acres &mdash;
-      drop the lot slider to open it back up to the full inventory.
+      Residential property in Oregon either held by a federal agency or heading to a
+      county sheriff's auction, pulled straight from the agencies' own listing systems
+      and ranked by straight-line distance from McMinnville. Showing lots over four
+      acres &mdash; drop the lot slider to open it back up to the full inventory.
     </p>
     <div class="origin-line">
       <span>ORIGIN 45.2101&deg;N 123.1951&deg;W</span>
@@ -519,6 +527,7 @@
         <tbody id="rows"></tbody>
       </table>
     </div>
+    <p class="lot-note" id="lot-note" hidden></p>
   </section>
 
   <footer>
@@ -677,18 +686,22 @@
 
     var sort = { key: 'distanceMiles', type: 'num', dir: 1 };
 
-    function visible() {
+    function passesExceptLot(l) {
       var maxD = +fDistance.value, maxP = +fPrice.value, minB = +fBeds.value;
+      if (l.distanceMiles != null && l.distanceMiles > maxD) return false;
+      if (l.price != null && l.price > maxP) return false;
+      if (minB && (l.beds == null || l.beds < minB)) return false;
+      if (fType.value && l.propertyType !== fType.value) return false;
+      if (fSource.value && l.sourceLabel !== fSource.value) return false;
+      return true;
+    }
+
+    function visible() {
       var minA = +fAcres.value;
       return ALL.filter(function (l) {
         // Above a zero threshold an unknown lot size cannot be shown to clear it.
         if (minA > 0 && !(l.acres > minA)) return false;
-        if (l.distanceMiles != null && l.distanceMiles > maxD) return false;
-        if (l.price != null && l.price > maxP) return false;
-        if (minB && (l.beds == null || l.beds < minB)) return false;
-        if (fType.value && l.propertyType !== fType.value) return false;
-        if (fSource.value && l.sourceLabel !== fSource.value) return false;
-        return true;
+        return passesExceptLot(l);
       }).sort(function (a, b) {
         var x = a[sort.key], y = b[sort.key];
         if (x == null) return 1;
@@ -696,6 +709,15 @@
         if (sort.type === 'num') return (x - y) * sort.dir;
         return String(x).localeCompare(String(y)) * sort.dir;
       });
+    }
+
+    // Auction notices rarely publish a lot size, so the lot filter would drop them
+    // silently. Count them so the page can say so instead.
+    function hiddenForUnknownLot() {
+      if (+fAcres.value === 0) return 0;
+      return ALL.filter(function (l) {
+        return l.acres == null && passesExceptLot(l);
+      }).length;
     }
 
     /* ---------- radial survey plot ---------- */
@@ -845,6 +867,15 @@
       drawFigures(current);
       drawPlot(current);
       drawTable(current);
+
+      var hidden = hiddenForUnknownLot();
+      var note = document.getElementById('lot-note');
+      note.hidden = hidden === 0;
+      note.textContent = hidden === 1
+        ? '1 listing is hidden because its sale notice does not publish a lot size. ' +
+          'Set the lot slider to zero to include it.'
+        : hidden + ' listings are hidden because their sale notices do not publish a ' +
+          'lot size. Set the lot slider to zero to include them.';
     }
 
     [fDistance, fAcres, fPrice, fBeds, fType, fSource].forEach(function (el) {

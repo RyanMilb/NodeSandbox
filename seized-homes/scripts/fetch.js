@@ -11,6 +11,7 @@ const SOURCES = [
   require('./sources/usda'),
   require('./sources/gsa'),
   require('./sources/irs'),
+  require('./sources/sheriff'),
 ];
 
 const DATA_DIR = path.join(__dirname, '..', 'data');

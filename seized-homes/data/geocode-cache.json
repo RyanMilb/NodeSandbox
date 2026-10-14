@@ -1,0 +1,210 @@
+{
+  "25440 llewellyn road corvallis or 97333": {
+    "lat": 44.472490776238,
+    "lon": -123.354724517194,
+    "matched": "25440 LLEWELLYN RD, CORVALLIS, OR, 97333",
+    "city": "CORVALLIS",
+    "state": "OR",
+    "zip": "97333"
+  },
+  "16159 sw 2nd st sherwood or": {
+    "lat": 45.356754095021,
+    "lon": -122.842987825313,
+    "matched": "16159 SW 2ND ST, SHERWOOD, OR, 97140",
+    "city": "SHERWOOD",
+    "state": "OR",
+    "zip": "97140"
+  },
+  "17358 beaver place bend or 97707": {
+    "lat": 43.787460466366,
+    "lon": -121.459113759686,
+    "matched": "17358 BEAVER PL, BEND, OR, 97707",
+    "city": "BEND",
+    "state": "OR",
+    "zip": "97707"
+  },
+  "43 upper applegate road jacksonville or 97530": {
+    "lat": 42.23700635269,
+    "lon": -123.040827591095,
+    "matched": "43 UPPER APPLEGATE RD, JACKSONVILLE, OR, 97530",
+    "city": "JACKSONVILLE",
+    "state": "OR",
+    "zip": "97530"
+  },
+  "53 betty jo way talent or 97540": {
+    "lat": 42.233804118329,
+    "lon": -122.77469065058,
+    "matched": "53 BETTY JO WAY, TALENT, OR, 97540",
+    "city": "TALENT",
+    "state": "OR",
+    "zip": "97540"
+  },
+  "7639 bly mountain cutoff rd, bonanza, or 97623": {
+    "lat": 42.292187904386,
+    "lon": -121.407215700249,
+    "matched": "7639 BLY MOUNTAIN CUTOFF RD, BONANZA, OR, 97623",
+    "city": "BONANZA",
+    "state": "OR",
+    "zip": "97623"
+  },
+  "3300 cascade ave space w33 hood river": {
+    "lat": 45.71050666213,
+    "lon": -121.547190964614,
+    "matched": "3300 CASCADE AVE, HOOD RIVER, OR, 97031",
+    "city": "HOOD RIVER",
+    "state": "OR",
+    "zip": "97031"
+  },
+  "4575 rogue river highway grants pass or 97527": {
+    "lat": 42.421162700867,
+    "lon": -123.243448820786,
+    "matched": "4575 ROGUE RIVER HWY, GRANTS PASS, OR, 97527",
+    "city": "GRANTS PASS",
+    "state": "OR",
+    "zip": "97527"
+  },
+  "98314 bridge ln myrtle point or 97458": {
+    "lat": 43.023361524099,
+    "lon": -124.006795762628,
+    "matched": "98314 BRIDGE LN, MYRTLE POINT, OR, 97458",
+    "city": "MYRTLE POINT",
+    "state": "OR",
+    "zip": "97458"
+  },
+  "10030 n tioga avenue portland or 97203": {
+    "lat": 45.596956217039,
+    "lon": -122.740045903324,
+    "matched": "10030 N TIOGA AVE, PORTLAND, OR, 97203",
+    "city": "PORTLAND",
+    "state": "OR",
+    "zip": "97203"
+  },
+  "737 ne 99th avenue unit 23 portland or 97220": {
+    "lat": 45.528075838725,
+    "lon": -122.562026052437,
+    "matched": "737 NE 99TH AVE, PORTLAND, OR, 97220",
+    "city": "PORTLAND",
+    "state": "OR",
+    "zip": "97220"
+  },
+  "817 sw 171st ave beaverton or 97006": {
+    "lat": 45.514245595224,
+    "lon": -122.853304491243,
+    "matched": "817 SW 171ST AVE, BEAVERTON, OR, 97006",
+    "city": "BEAVERTON",
+    "state": "OR",
+    "zip": "97006"
+  },
+  "498 n 3rd ct coos bay or 97420": {
+    "lat": 43.37441632045,
+    "lon": -124.217284962222,
+    "matched": "498 N 3RD CT, COOS BAY, OR, 97420",
+    "city": "COOS BAY",
+    "state": "OR",
+    "zip": "97420"
+  },
+  "1134 sw jefferson street unit #603 portland or 97201": {
+    "lat": 45.516332456093,
+    "lon": -122.685693416677,
+    "matched": "1134 SW JEFFERSON ST, PORTLAND, OR, 97201",
+    "city": "PORTLAND",
+    "state": "OR",
+    "zip": "97201"
+  },
+  "18081 ne sandy blvd. portland or 97230": {
+    "lat": 45.546068849184,
+    "lon": -122.477426854505,
+    "matched": "18081 NE SANDY BLVD, PORTLAND, OR, 97230",
+    "city": "PORTLAND",
+    "state": "OR",
+    "zip": "97230"
+  },
+  "1422 se 23rd ave portland or 97214": {
+    "lat": 45.512672956371,
+    "lon": -122.64243036523,
+    "matched": "1422 SE 23RD AVE, PORTLAND, OR, 97214",
+    "city": "PORTLAND",
+    "state": "OR",
+    "zip": "97214"
+  },
+  "5850 ne 18th ave portland or 97211": {
+    "lat": 45.564977891745,
+    "lon": -122.646925413265,
+    "matched": "5850 NE 18TH AVE, PORTLAND, OR, 97211",
+    "city": "PORTLAND",
+    "state": "OR",
+    "zip": "97211"
+  },
+  "5075 wood lake way florence or 97439": {
+    "lat": 44.023350597551,
+    "lon": -124.111090373475,
+    "matched": "5075 WOOD LAKE WAY, FLORENCE, OR, 97439",
+    "city": "FLORENCE",
+    "state": "OR",
+    "zip": "97439"
+  },
+  "12063 southeast oak street, portland, or 97216": {
+    "lat": 45.519768389695,
+    "lon": -122.538958818155,
+    "matched": "12063 SE OAK ST, PORTLAND, OR, 97216",
+    "city": "PORTLAND",
+    "state": "OR",
+    "zip": "97216"
+  },
+  "1323 sw 10th drive, gresham, or 97080": {
+    "lat": 45.48901699124,
+    "lon": -122.445753020314,
+    "matched": "1323 SW 10TH DR, GRESHAM, OR, 97080",
+    "city": "GRESHAM",
+    "state": "OR",
+    "zip": "97080"
+  },
+  "55520 gross drive. bend, or 97707": {
+    "lat": 43.816413907694,
+    "lon": -121.485861779142,
+    "matched": "55520 GROSS DR, BEND, OR, 97707",
+    "city": "BEND",
+    "state": "OR",
+    "zip": "97707"
+  },
+  "2880 hamilton lane grants pass or 97527": {
+    "lat": 42.404353345327,
+    "lon": -123.306326086721,
+    "matched": "2880 HAMILTON LN, GRANTS PASS, OR, 97527",
+    "city": "GRANTS PASS",
+    "state": "OR",
+    "zip": "97527"
+  },
+  "560 mesa verde drive cave junction or 97523": {
+    "lat": 42.123834871953,
+    "lon": -123.652821245051,
+    "matched": "560 MESA VERDE DR, CAVE JUNCTION, OR, 97523",
+    "city": "CAVE JUNCTION",
+    "state": "OR",
+    "zip": "97523"
+  },
+  "3260 kincaid street eugene or 97405": {
+    "lat": 44.021076393424,
+    "lon": -123.078409211031,
+    "matched": "3260 KINCAID ST, EUGENE, OR, 97405",
+    "city": "EUGENE",
+    "state": "OR",
+    "zip": "97405"
+  },
+  "357 n wall st coos bay or 97420": {
+    "lat": 43.395661282543,
+    "lon": -124.272887802029,
+    "matched": "357 N WALL ST, COOS BAY, OR, 97420",
+    "city": "COOS BAY",
+    "state": "OR",
+    "zip": "97420"
+  },
+  "13551 se siskin lane happy valley or 97015": {
+    "lat": 45.424064475341,
+    "lon": -122.50005858427,
+    "matched": "13551 SE SISKIN LN, HAPPY VALLEY, OR, 97015",
+    "city": "HAPPY VALLEY",
+    "state": "OR",
+    "zip": "97015"
+  }
+}

@@ -29,7 +29,8 @@ to `master` — there is no separate deploy step and nothing to configure.
 
 | Adapter | Agency | What it covers |
 | --- | --- | --- |
-| `hud` | HUD Home Store | Homes HUD owns after FHA foreclosure. The only source with Oregon inventory today (21 properties). |
+| `hud` | HUD Home Store | Homes HUD owns after FHA foreclosure. |
+| `sheriff` | Oregon Sheriffs' Sales | Statewide 28-day real-property notices — court-ordered foreclosure auctions run by each county sheriff, including county tax-foreclosure sales when a county holds one. |
 | `usda` | USDA Rural Development | Homes USDA owns after foreclosure on its rural loans. |
 | `gsa` | GSA Real Property Sales | Federal surplus and forfeited real property. |
 | `irs` | IRS Auctions | Property seized under IRC §6331 for unpaid taxes. Genuinely "seized" in the strict sense. |
@@ -39,9 +40,23 @@ They are wired up so the dashboard fills in on its own when that changes — the
 source ledger at the top of the page reports each one's live count, so an empty
 source is visibly empty rather than silently missing.
 
+### Why there is no per-county adapter
+
+County tax foreclosure looked like the obvious way to add Oregon volume, but the
+counties publish nothing to scrape between sales: Yamhill's tax foreclosure list
+page carries no document, Clackamas has no auction posted, and Marion's only live
+document is a *publication* list of properties still in their redemption period —
+owners can pay and keep them, so they are not purchasable inventory.
+
+When a county does hold a sale, the notice goes to oregonsheriffssales.org, which
+the `sheriff` adapter already reads statewide through one API. Five per-county
+scrapers would be five brittle parsers returning zero almost all the time.
+
 Deliberately excluded: Zillow, Realtor.com, RealtyTrac and Foreclosure.com. Their
-terms prohibit scraping and the data sits behind a paywall. Everything above is
-public federal data.
+terms prohibit scraping and the data sits behind a paywall. Fannie Mae HomePath
+and Freddie Mac HomeSteps hold real Oregon REO volume but are GSE-operated
+commercial sites behind an authenticated API gateway, in the same terms-of-service
+category. Everything wired up above is public government data.
 
 ## How it fits together
 
