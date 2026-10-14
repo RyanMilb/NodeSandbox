@@ -15,6 +15,16 @@ node scripts/build-dashboard.js  # data + template -> dashboard.html
 `dashboard.html` is fully self-contained (data inlined, no external requests
 except webfonts), so it opens straight from disk.
 
+## Deploying
+
+The build also writes `docs/seized-homes/index.html` at the repo root. GitHub
+Pages serves `docs/` from `master`, so once that lands on `master` the dashboard
+is live at <https://ryanmilb.github.io/NodeSandbox/seized-homes/>. It sits in a
+subfolder because `docs/` root is already the Underwater Cities game.
+
+Refreshing the published dashboard is the two commands above followed by a commit
+to `master` — there is no separate deploy step and nothing to configure.
+
 ## Sources
 
 | Adapter | Agency | What it covers |

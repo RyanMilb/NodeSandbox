@@ -376,6 +376,13 @@
   .band { display: inline-flex; align-items: center; gap: 0.4rem; }
   .band i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 
+  .cut {
+    font-size: 0.7rem;
+    color: var(--moss);
+    letter-spacing: 0.01em;
+    margin-top: 0.15rem;
+  }
+
   .pill {
     display: inline-block;
     font-size: 0.68rem;
@@ -632,6 +639,13 @@
           v: biggest && biggest.acres != null ? biggest.acres.toFixed(2) + ' ac' : '—',
           l: 'Largest lot',
           s: biggest && biggest.acres != null ? biggest.city + ' · ' + biggest.county : ''
+        },
+        {
+          v: rows.filter(function (l) {
+            return l.priorPrice != null && l.priorPrice > l.price;
+          }).length,
+          l: 'Price cuts',
+          s: 'since the previous pull'
         }
       ].map(function (f) {
         return '<div class="figure">' +
@@ -783,7 +797,13 @@
             esc(l.propertyType || '') + '</div></td>' +
           '<td>' + esc(l.county) + '</td>' +
           '<td class="num"><span class="band"><i style="background:' + band(l.price) + '"></i>' +
-            usd(l.price) + '</span></td>' +
+            usd(l.price) + '</span>' +
+            (l.priorPrice != null && l.priorPrice > l.price
+              ? '<div class="cut">&darr; ' +
+                Math.round((l.priorPrice - l.price) / l.priorPrice * 100) +
+                '% from ' + usdShort(l.priorPrice) + '</div>'
+              : '') +
+          '</td>' +
           '<td class="num">' + (l.beds == null ? '—' : l.beds) + ' / ' +
             (l.baths == null ? '—' : l.baths) + '</td>' +
           '<td class="num">' + (l.sqft == null ? '—' : l.sqft.toLocaleString('en-US')) + '</td>' +
