@@ -40,7 +40,15 @@ async function geocode(oneLineAddress) {
     const body = JSON.parse(await fetchText(url, { timeoutMs: 20000, retries: 2 }));
     const match = body?.result?.addressMatches?.[0];
     if (match) {
-      result = { lat: match.coordinates.y, lon: match.coordinates.x, matched: match.matchedAddress };
+      const parts = match.addressComponents || {};
+      result = {
+        lat: match.coordinates.y,
+        lon: match.coordinates.x,
+        matched: match.matchedAddress,
+        city: parts.city || null,
+        state: parts.state || null,
+        zip: parts.zip || null,
+      };
     }
   } catch {
     // A geocode miss must not fail the run; the record keeps a null distance.
