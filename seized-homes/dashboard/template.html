@@ -395,6 +395,7 @@
   }
   .pill.exclusive { border-color: var(--moss); color: var(--moss); }
   .pill.new { border-color: var(--signal); color: var(--signal); }
+  .pill.past { border-color: var(--contour); color: var(--contour); }
 
   .empty-row td {
     padding: 2.5rem 0.6rem;
@@ -459,7 +460,7 @@
       <h2 class="panel-title">Distance survey</h2>
       <p class="panel-hint">
         Each property plotted at its true compass bearing from McMinnville. Rings mark
-        25, 50, 100, 150 and 250 miles. Hover a marker to identify it.
+        distance bands out to the farthest listing. Hover a marker to identify it.
       </p>
       <div class="plot-wrap">
         <svg id="plot" viewBox="0 0 560 560" role="img"
@@ -550,6 +551,13 @@
     var ALL = DATA.listings;
     var META = DATA.meta;
 
+    // Statewide sources reach past any fixed radius — eastern Oregon is over 300
+    // miles out — so the slider and the plot scale take their ceiling from the data.
+    var FARTHEST = ALL.reduce(function (max, l) {
+      return l.distanceMiles != null && l.distanceMiles > max ? l.distanceMiles : max;
+    }, 0);
+    var DLIMIT = Math.max(50, Math.ceil(FARTHEST / 25) * 25);
+
     var usd = function (n) {
       return n == null ? '—' : '$' + Math.round(n).toLocaleString('en-US');
     };
@@ -564,8 +572,18 @@
       });
     };
 
-    function band(price) {
-      if (price == null) return 'var(--ink-faint)';
+    // A sale whose date has passed can linger on the source site after it was held
+    // or postponed, so flag it rather than present it as upcoming.
+    function isPast(dateText) {
+      if (!dateText) return false;
+      var when = new Date(dateText);
+      if (isNaN(when)) return false;
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return when < today;
+    }
+
+    function band(price) {      if (price == null) return 'var(--ink-faint)';
       if (price < 250000) return 'var(--moss)';
       if (price <= 500000) return 'var(--water)';
       return 'var(--ochre)';
@@ -684,6 +702,9 @@
     fillSelect(fType, Array.from(new Set(ALL.map(function (l) { return l.propertyType; }))));
     fillSelect(fSource, Array.from(new Set(ALL.map(function (l) { return l.sourceLabel; }))));
 
+    fDistance.max = DLIMIT;
+    fDistance.value = DLIMIT;
+
     var sort = { key: 'distanceMiles', type: 'num', dir: 1 };
 
     function passesExceptLot(l) {
@@ -722,8 +743,11 @@
 
     /* ---------- radial survey plot ---------- */
 
-    var CX = 280, CY = 280, RMAX = 226, DMAX = 260;
-    var RINGS = [25, 50, 100, 150, 250];
+    var CX = 280, CY = 280, RMAX = 226, DMAX = DLIMIT;
+    var RINGS = [25, 50, 100, 200, 300, 400].filter(function (r) {
+      // Keep the outer ring from crowding the label of the one inside it.
+      return r < DLIMIT * 0.9;
+    }).concat([DLIMIT]);
     var radius = function (miles) { return RMAX * Math.sqrt(Math.min(miles, DMAX) / DMAX); };
 
     var plot = document.getElementById('plot');
@@ -735,7 +759,7 @@
       RINGS.forEach(function (mi) {
         parts.push('<circle cx="' + CX + '" cy="' + CY + '" r="' + radius(mi).toFixed(1) +
           '" fill="none" stroke="var(--contour)" stroke-width="1" stroke-opacity="0.5" ' +
-          (mi === 250 ? '' : 'stroke-dasharray="2 4" ') + '/>');
+          (mi === DLIMIT ? '' : 'stroke-dasharray="2 4" ') + '/>');
         parts.push('<text x="' + (CX + 4) + '" y="' + (CY - radius(mi) + 12).toFixed(1) +
           '" fill="var(--contour)" font-family="IBM Plex Mono, monospace" font-size="10">' +
           mi + ' mi</text>');
@@ -833,7 +857,8 @@
           '<td class="num">' + (l.yearBuilt == null ? '—' : l.yearBuilt) + '</td>' +
           '<td><span class="pill' + (/Exclusive/i.test(l.status || '') ? ' exclusive' : '') + '">' +
             esc((l.status || '—').replace(' listing', '')) + '</span></td>' +
-          '<td class="num">' + esc(l.saleDate || '—') + '</td>' +
+          '<td class="num">' + esc(l.saleDate || '—') +
+            (isPast(l.saleDate) ? ' <span class="pill past">past</span>' : '') + '</td>' +
         '</tr>';
       }).join('');
     }
@@ -883,7 +908,7 @@
     });
 
     document.getElementById('reset').addEventListener('click', function () {
-      fDistance.value = 250; fPrice.value = 1150000; fAcres.value = 4;
+      fDistance.value = DLIMIT; fPrice.value = 1150000; fAcres.value = 4;
       fBeds.value = '0'; fType.value = ''; fSource.value = '';
       render();
     });

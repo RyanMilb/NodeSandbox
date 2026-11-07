@@ -206,5 +206,190 @@
     "city": "HAPPY VALLEY",
     "state": "OR",
     "zip": "97015"
+  },
+  "917 45th ave ne salem or 97301": {
+    "lat": 44.942241451293,
+    "lon": -122.973866108599,
+    "matched": "917 45TH AVE NE, SALEM, OR, 97301",
+    "city": "SALEM",
+    "state": "OR",
+    "zip": "97301"
+  },
+  "764 wecoma loop florence or 97439": {
+    "lat": 43.996923644663,
+    "lon": -124.112930582319,
+    "matched": "764 WECOMA LOOP, FLORENCE, OR, 97439",
+    "city": "FLORENCE",
+    "state": "OR",
+    "zip": "97439"
+  },
+  "685 n or st ontario oregon 97914": null,
+  "864 bear creek drive molalla or 97038": {
+    "lat": 45.151370239892,
+    "lon": -122.593829765282,
+    "matched": "864 BEAR CREEK DR, MOLALLA, OR, 97038",
+    "city": "MOLALLA",
+    "state": "OR",
+    "zip": "97038"
+  },
+  "915 n. main st. independence or 97351": {
+    "lat": 44.845607134794,
+    "lon": -123.184571382246,
+    "matched": "915 S MAIN ST, INDEPENDENCE, OR, 97351",
+    "city": "INDEPENDENCE",
+    "state": "OR",
+    "zip": "97351"
+  },
+  "277 s 51st street springfield or 97478": {
+    "lat": 44.043794626712,
+    "lon": -122.942818275711,
+    "matched": "277 S 51ST ST, SPRINGFIELD, OR, 97478",
+    "city": "SPRINGFIELD",
+    "state": "OR",
+    "zip": "97478"
+  },
+  "805 c street myrtle point or 97458": {
+    "lat": 43.060726914012,
+    "lon": -124.137514019004,
+    "matched": "805 C ST, MYRTLE POINT, OR, 97458",
+    "city": "MYRTLE POINT",
+    "state": "OR",
+    "zip": "97458"
+  },
+  "20860 dione way bend or 97703": {
+    "lat": 44.153316577237,
+    "lon": -121.281665682979,
+    "matched": "20860 DIONE WAY, BEND, OR, 97703",
+    "city": "BEND",
+    "state": "OR",
+    "zip": "97703"
+  },
+  "3926 mazama dr klamath falls or 97603": {
+    "lat": 42.186656092808,
+    "lon": -121.739632910697,
+    "matched": "3926 MAZAMA DR, KLAMATH FALLS, OR, 97603",
+    "city": "KLAMATH FALLS",
+    "state": "OR",
+    "zip": "97603"
+  },
+  "4092 hanna st, roseburg or 97470": {
+    "lat": 43.155107224928,
+    "lon": -123.390236625202,
+    "matched": "4092 SW HANNA ST, ROSEBURG, OR, 97471",
+    "city": "ROSEBURG",
+    "state": "OR",
+    "zip": "97471"
+  },
+  "285 clover ridge rd ne albany or 97322": {
+    "lat": 44.647473287066,
+    "lon": -123.050487997251,
+    "matched": "285 CLOVER RIDGE RD NE, ALBANY, OR, 97322",
+    "city": "ALBANY",
+    "state": "OR",
+    "zip": "97322"
+  },
+  "240 se whalesong drive depoe bay or 97341": {
+    "lat": 44.808662513378,
+    "lon": -124.05242637025,
+    "matched": "240 SE WHALESONG DR, DEPOE BAY, OR, 97341",
+    "city": "DEPOE BAY",
+    "state": "OR",
+    "zip": "97341"
+  },
+  "6408 and 6474 webber road central point or 97502": {
+    "lat": 42.49828436869,
+    "lon": -122.927372580361,
+    "matched": "6474 WEBBER RD, CENTRAL POINT, OR, 97502",
+    "city": "CENTRAL POINT",
+    "state": "OR",
+    "zip": "97502"
+  },
+  "17639 sw heatherwood lane sherwood or 97140": {
+    "lat": 45.350134752785,
+    "lon": -122.858352567912,
+    "matched": "17639 SW HEATHERWOOD LN, SHERWOOD, OR, 97140",
+    "city": "SHERWOOD",
+    "state": "OR",
+    "zip": "97140"
+  },
+  "1070 sw 10th st hermiston or 97838": {
+    "lat": 45.832321558571,
+    "lon": -119.308498186864,
+    "matched": "1070 SW 10TH ST, HERMISTON, OR, 97838",
+    "city": "HERMISTON",
+    "state": "OR",
+    "zip": "97838"
+  },
+  "425 sw 17th st pendleton": {
+    "lat": 45.665446118556,
+    "lon": -118.801997084806,
+    "matched": "425 SW 17TH ST, PENDLETON, OR, 97801",
+    "city": "PENDLETON",
+    "state": "OR",
+    "zip": "97801"
+  },
+  "33263 or trail highway echo oregon 97826": {
+    "lat": 45.740815533452,
+    "lon": -119.202622161435,
+    "matched": "33263 OREGON TRAIL RD, ECHO, OR, 97826",
+    "city": "ECHO",
+    "state": "OR",
+    "zip": "97826"
+  },
+  "4552 souza st eugene, or 97402": {
+    "lat": 44.080128223134,
+    "lon": -123.175450385231,
+    "matched": "4552 SOUZA ST, EUGENE, OR, 97402",
+    "city": "EUGENE",
+    "state": "OR",
+    "zip": "97402"
+  },
+  "24775 se victoria street damascus or 97089": {
+    "lat": 45.439747055562,
+    "lon": -122.407293190259,
+    "matched": "24775 SE VICTORIA ST, DAMASCUS, OR, 97089",
+    "city": "DAMASCUS",
+    "state": "OR",
+    "zip": "97089"
+  },
+  "4 touchstone apt 157 lake oswego or 97035": {
+    "lat": 45.427624124139,
+    "lon": -122.714831060358,
+    "matched": "4 TOUCHSTONE, LAKE OSWEGO, OR, 97035",
+    "city": "LAKE OSWEGO",
+    "state": "OR",
+    "zip": "97035"
+  },
+  "21550 ne willow glen road fairview or 97024": {
+    "lat": 45.543741411781,
+    "lon": -122.441319151965,
+    "matched": "21550 NE WILLOW GLEN RD, FAIRVIEW, OR, 97024",
+    "city": "FAIRVIEW",
+    "state": "OR",
+    "zip": "97024"
+  },
+  "685 n oregon st ontario or 97914": {
+    "lat": 44.033221277537,
+    "lon": -116.960943932355,
+    "matched": "685 N OREGON ST, ONTARIO, OR, 97914",
+    "city": "ONTARIO",
+    "state": "OR",
+    "zip": "97914"
+  },
+  "33263 oregon trail highway echo or 97826": {
+    "lat": 45.740815533452,
+    "lon": -119.202622161435,
+    "matched": "33263 OREGON TRAIL RD, ECHO, OR, 97826",
+    "city": "ECHO",
+    "state": "OR",
+    "zip": "97826"
+  },
+  "224 n hayden bay dr unit 224, portland, or, 97217": {
+    "lat": 45.610172037864,
+    "lon": -122.670197978325,
+    "matched": "224 N HAYDEN BAY DR, PORTLAND, OR, 97217",
+    "city": "PORTLAND",
+    "state": "OR",
+    "zip": "97217"
   }
 }

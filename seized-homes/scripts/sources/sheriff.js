@@ -49,7 +49,12 @@ async function fetchListings() {
     const match = detail.match(DETAIL_RE);
     if (!match) continue;
 
-    const rawAddress = match[1].replace(/\bOregon\b/i, 'OR').replace(/\s+/g, ' ').trim();
+    // Only the trailing "Oregon" is the state — "685 N Oregon St Ontario Oregon"
+    // has one in the street name too, and rewriting that one breaks the address.
+    const rawAddress = match[1]
+      .replace(/\s+/g, ' ')
+      .replace(/\bOregon\b(?=\s*(?:\d{5}(?:-\d{4})?)?\s*$)/i, 'OR')
+      .trim();
     const point = await geocode(rawAddress);
     const county = slugFrom(post.class_list, 'county-');
 
