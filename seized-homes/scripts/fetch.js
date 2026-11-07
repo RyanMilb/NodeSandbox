@@ -5,6 +5,7 @@ const path = require('path');
 
 const { ORIGIN, distanceFromOrigin } = require('./lib/distance');
 const { addressKey } = require('./lib/normalize');
+const { geocode } = require('./lib/geocode');
 
 const SOURCES = [
   require('./sources/hud'),
@@ -81,6 +82,18 @@ async function run() {
 
   const byAddress = new Map();
   for (const record of collected) {
+    // A source can omit coordinates for an individual record even when it normally
+    // supplies them, so fall back to the geocoder rather than losing the distance.
+    if (record.lat == null && record.address) {
+      const point = await geocode(
+        [record.address, record.city, record.state, record.zip].filter(Boolean).join(', ')
+      );
+      if (point) {
+        record.lat = point.lat;
+        record.lon = point.lon;
+      }
+    }
+
     const { miles, bearing } = distanceFromOrigin(record.lat, record.lon);
     const prior = priorById.get(record.id);
     const enriched = {
